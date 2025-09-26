@@ -125,7 +125,7 @@ span{
 }
 
 section{
-    padding: 60px 10%;
+    padding: 100px 10%;
 }
 
 .home{
@@ -1405,5 +1405,6 @@ a.btn:hover{
         font-size: 1rem;
     }
 }
+
 
 
