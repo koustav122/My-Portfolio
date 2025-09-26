@@ -406,19 +406,19 @@ a.btn:hover{
 }
 
 .info-about1{
-    left: 10%;
-    top: 34%;
+    left: 15%;
+    top: 40%;
 
 }
 
 .info-about2{
-    left: 66%;
-    top: 15%;
+    left: 65%;
+    top: 18%;
 }
 
 .info-about3{
-    left: 61%;
-    top: 70%;
+    left: 60%;
+    top: 79%;
 }
 
 .img-about span{
@@ -1405,6 +1405,7 @@ a.btn:hover{
         font-size: 1rem;
     }
 }
+
 
 
 
