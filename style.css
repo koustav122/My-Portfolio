@@ -1283,17 +1283,30 @@ a.btn:hover{
 /* Break Points------------------------------------------------------------------------------- */
 @media(max-width:991px) {
 
+    .container {
+        max-width: 900px; 
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    header,
+    header.sticky,
+    footer,
+    section {
+        width: 100%;
+
+    }
     header,
     header.sticky {
-        padding: 15px 5%;
+        padding: 15px 0;
     }
 
     footer {
-        padding: 15px 5%;
+        padding: 15px 0;
     }
 
     section {
-        padding: 50px 5%;
+        padding: 50px 0;
     }
 
     .navlist a {
@@ -1307,13 +1320,13 @@ a.btn:hover{
         --h2-font: 3rem;
     }
 
-    .home-content {
+    .home-content{
         margin-top: 5rem;
     }
-
     .social-icons {
         margin-top: 2rem;
     }
+
 }
 
 @media(max-width:768px) {
@@ -1321,11 +1334,83 @@ a.btn:hover{
         display: block;
         transition: all .4s ease;
     }
-
     #menu-icon.bx-x {
         transform: rotate(-180deg);
     }
+    section {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .home,
+    .about,
+    .skills,
+    .portfolio,
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
+
+    .skill-main {
+        grid-template-columns: 1fr; 
+        padding-left: 0;
+        padding-right: 0;
+        grid-gap: 30px; 
+    }
+    .porfessional {
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 20px;
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 20px 10px;
+        justify-items: center; 
+        margin-top: 1rem; 
+    }
+    .skill-left .skill-bar .info {
+        padding: 0 0;
+    }
+    .box {
+        margin: 0; 
+        width: 100%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .timeline-items {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .timeline-items::before {
+        left: 30px;
+        transform: none; 
+    }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        padding-left: calc(30px + 30px); 
+        padding-right: 0;
+        text-align: left;
+    }
+    .timeline-dot {
+        left: 33px;
+        transform: translate(-50%, 0);
+    }
+
+    .timeline-item:hover .timeline-dot {
+        transform: translate(-50%, 0) scale(1.3);
+    }
+    .timeline-content {
+        padding: 15px 20px;
+    }
+    .main-text {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .navlist {
         display: flex;
         position: absolute;
@@ -1334,8 +1419,8 @@ a.btn:hover{
         left: 0;
         flex-direction: column;
         background: #2f072f;
-        text-align: right;
-        padding: 0 5%;
+        text-align: left;
+        padding: 10px 5%;
         transition: all .45s ease;
     }
 
@@ -1360,25 +1445,25 @@ a.btn:hover{
     .about {
         flex-direction: column-reverse;
     }
-
-    .skill-main {
-        grid-template-columns: 1fr;
-    }
-
+    
     .fillter-buttons {
         margin: 2.5rem 0;
+    }
+    .contact-box form {
+        padding: 2rem 1.5rem 2.5rem;
     }
 
     .contact-container {
         grid-template-columns: 1fr;
     }
-
+    
     footer p {
         font-size: 0.8rem;
+        text-align: center;
     }
 }
 
-@media(max-width: 420px) {
+/* @media(max-width: 420px) {
     html {
         font-size: 80%;
     }
@@ -1404,9 +1489,122 @@ a.btn:hover{
     .img-about p {
         font-size: 1rem;
     }
+} */
+
+
+
+
+
+@media(max-width: 420px) {
+    html {
+        font-size: 75%;
+    }
+    .home,
+    .about,
+    .skills,
+    .portfolio,
+    .contact {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .logo {
+        font-size: 30px;
+    }
+    .home-content h1 {
+        font-size: 2rem; 
+    }
+    
+    .home-image {
+        margin-bottom: 3rem; 
+    }
+
+    .img-about img {
+        max-width: 280px;
+        width: 100%;
+    }
+    .info-about1,
+    .info-about2,
+    .info-about3 {
+        display: none;
+    }
+    .porfessional {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 0; 
+    }
+
+    .box {
+        max-width: 150px; 
+        margin: 0 auto; 
+    }
+    
+    .circle {
+        height: 100px; 
+    }
+    
+    .box .text big {
+        font-size: 1.5rem;
+    }
+    
+    .box .text small {
+        font-size: 1rem;
+    }
+    .main-text {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .timeline-items::before {
+        left: 20px;
+    }
+    .timeline-dot {
+        left: 23px;
+    }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: calc(20px + 20px);
+        padding-right: 10px;
+    }
+    
+    .timeline-content {
+        padding: 15px 15px;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
+    
+    .fillter-buttons .button {
+        font-size: .9rem; 
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 5px; 
+        display: inline-block; 
+    }
+    
+    .portfolio-gallery {
+        gap: 1.5rem;
+    }
+
+    .contact-box .field-box {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-box .field-box input,
+    .contact-box .field-box textarea {
+        padding: 0.8rem;
+    }
+    .footer {
+        padding: 1rem 15px;
+    }
+
+    .footer .copyright {
+        font-size: 0.7rem;
+    }
 }
-
-
-
-
-
