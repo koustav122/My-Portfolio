@@ -1005,7 +1005,7 @@ a.btn:hover{
     align-items: center;
     margin-top: 2rem; 
     margin-bottom: 1rem; 
-    margin-right: 11rem;     
+    /* margin-right: 11rem;      */
 }
 
 .arrow a {
@@ -1099,10 +1099,6 @@ a.btn:hover{
 }
 
 
-
-
-
-
 /* parallax----------------------------------------------------------------------------*/
 .scroll-scale {
     opacity: 0;
@@ -1126,19 +1122,6 @@ a.btn:hover{
     opacity: 1;
     transform: translate(0, 0) scale(1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1463,38 +1446,6 @@ a.btn:hover{
     }
 }
 
-/* @media(max-width: 420px) {
-    html {
-        font-size: 80%;
-    }
-
-    footer p {
-        font-size: .6rem;
-    }
-
-    .fillter-buttons .button {
-        font-size: .8rem;
-    }
-
-    .img-about img {
-        width: 300px;
-    }
-
-    .info-about1,
-    .info-about2,
-    .info-about3 {
-        display: none;
-    }
-
-    .img-about p {
-        font-size: 1rem;
-    }
-} */
-
-
-
-
-
 @media(max-width: 420px) {
     html {
         font-size: 75%;
@@ -1608,3 +1559,4 @@ a.btn:hover{
         font-size: 0.7rem;
     }
 }
+
