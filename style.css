@@ -1402,7 +1402,7 @@ a.btn:hover{
         left: 0;
         flex-direction: column;
         background: #2f072f;
-        text-align: left;
+        text-align: right;
         padding: 10px 5%;
         transition: all .45s ease;
     }
@@ -1559,4 +1559,5 @@ a.btn:hover{
         font-size: 0.7rem;
     }
 }
+
 
