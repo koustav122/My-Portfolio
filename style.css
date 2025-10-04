@@ -449,30 +449,37 @@ a.btn:hover{
     text-transform: uppercase;
 }
 
-.section-services{
-    display: flex;
+.section-services {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 1.5rem;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    grid-gap: 2rem;
+    align-items: stretch;
 }
 
-.section-services .service-box{
-    flex: 1 1 18rem;
+.section-services .service-box {
     padding: 2rem 1rem 2rem;
     text-align: center;
     background: var(--secon-bg-color);
-    transition: transform .4s;
-    border-radius: 10px;
+    transition: transform .4s ease-in-out, border .4s ease-in-out, box-shadow .4s ease-in-out;
+    border-radius: 20px;
+    border: 3px solid transparent; 
+    min-height: 540px;
+    max-width: 420px;
+    margin: 0 auto;
+    
 }
 
 .service-btn{
     width: auto;
     justify-content: center;
+    text-align: center; 
 }
 
-.service-box:hover{
-    transform: translateY(-.7rem);
+.service-box:hover {
+    transform: translateY(-.7rem) scale(1.03); 
+    border: 3px solid var(--main-color);
+    box-shadow: 0 0 50px var(--main-color); 
 }
 
 .service-icon{
@@ -496,11 +503,18 @@ a.btn:hover{
 }
 
 .service-box p{
-    margin: .5rem 0 1.5rem 0;
+    margin: .5rem 0 2rem 0;
     font-weight: 300;
     letter-spacing: 1px;
     color: #bdbdbd;
     line-height: 1.6;
+    max-width: 95%;
+    text-align: center;
+}
+
+#star{
+    color : var(--hover-color);
+    font-size: 1.5rem;
 }
 
 
@@ -1559,6 +1573,7 @@ a.btn:hover{
         font-size: 0.7rem;
     }
 }
+
 
 
 
