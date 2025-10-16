@@ -15,13 +15,13 @@ const typed = new Typed('.multiple-text', {
     cursorChar: '|',
 });
 
-// circle skill
+// === Skill Bar & Circle Animation (Final Optimized) ===
 document.addEventListener("DOMContentLoaded", () => {
   const skillSection = document.querySelector(".skills");
   const bars = document.querySelectorAll(".skill-bar .bar span");
   const circles = document.querySelectorAll(".circle");
 
- 
+  
   function buildCircles() {
     circles.forEach(elem => {
       const dots = parseInt(elem.getAttribute("data-dots"));
@@ -30,12 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const rotate = 360 / dots;
       let points = "";
 
-      
       for (let i = 0; i < dots; i++) {
         points += `<div class="points" style="--i:${i}; --rot:${rotate}deg"></div>`;
       }
       elem.innerHTML = points;
-
 
       const pointsMarked = elem.querySelectorAll(".points");
       pointsMarked.forEach(p => p.classList.remove("marked"));
@@ -44,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
 
   function animateBars() {
     bars.forEach(bar => {
@@ -67,8 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  
   function resetAnimations() {
+    // Smoothly shrink bars
     bars.forEach(bar => {
       bar.style.transition = "width 0.8s ease-out";
       bar.style.width = "0%";
@@ -88,20 +85,19 @@ document.addEventListener("DOMContentLoaded", () => {
     (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-         
           animateBars();
           buildCircles();
         } else {
-          
           resetAnimations();
         }
       });
     },
-    { threshold: 0.3 } 
+    { threshold: 0.3 }
   );
 
   observer.observe(skillSection);
 });
+
 // mix it up portfolio section
 var mixer = mixitup('.portfolio-gallery');
 
@@ -153,4 +149,5 @@ const observer = new IntersectionObserver((entries) => {
 
 const scrollElements = document.querySelectorAll(".scroll-scale, .scroll-bottom, .scroll-top");
 scrollElements.forEach((el) => observer.observe(el));
+
 
