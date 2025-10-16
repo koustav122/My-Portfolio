@@ -599,7 +599,7 @@ a.btn:hover{
  }
 .skill-bar .bar .operating-system {
   width: 65%;
-  animation: operating 8s;
+  animation: operating-system 8s;
 }
 
 .skill-bar .bar .linux { 
@@ -1224,13 +1224,9 @@ a.btn:hover{
     }
 }
 
-@keyframes operting{
-    0%{
-        width: 0%
-    }
-    100%{
-        width: 65%;
-    }
+@keyframes operating-system {
+  from { width: 0%; }
+  to { width: 65%; }
 }
 
 @keyframes linux{
@@ -1574,6 +1570,7 @@ a.btn:hover{
         font-size: 0.7rem;
     }
 }
+
 
 
 
