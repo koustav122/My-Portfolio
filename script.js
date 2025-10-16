@@ -15,12 +15,13 @@ const typed = new Typed('.multiple-text', {
     cursorChar: '|',
 });
 
-// === Skill Bar & Circle Animation ===
+// === Skill Bar & Circle Animation (Fixed Reload) ===
 document.addEventListener("DOMContentLoaded", () => {
   const skillSection = document.querySelector(".skills");
   const bars = document.querySelectorAll(".skill-bar .bar span");
   const circles = document.querySelectorAll(".circle");
 
+  // Build circular skill points
   function buildCircles() {
     circles.forEach(elem => {
       const dots = parseInt(elem.getAttribute("data-dots"));
@@ -42,20 +43,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Animate horizontal skill bars
   function animateBars() {
     bars.forEach(bar => {
       const finalWidth =
-       bar.classList.contains("html") ? "90%" :
-       bar.classList.contains("css") ? "72%" :
-       bar.classList.contains("javascript") ? "80%" :
-       bar.classList.contains("mongodb") ? "68%" :
-       bar.classList.contains("react") ? "75%" :
-       bar.classList.contains("python") ? "84%" :
-       bar.classList.contains("operating-system") ? "65%" :
-       bar.classList.contains("linux") ? "60%" : "0%";
+        bar.classList.contains("html") ? "90%" :
+        bar.classList.contains("css") ? "72%" :
+        bar.classList.contains("javascript") ? "80%" :
+        bar.classList.contains("mongodb") ? "68%" :
+        bar.classList.contains("react") ? "75%" :
+        bar.classList.contains("python") ? "84%" :
+        bar.classList.contains("operating-system") ? "65%" :
+        bar.classList.contains("linux") ? "60%" : "0%";
 
+      // Reset width to 0 before animating
       bar.style.transition = "none";
       bar.style.width = "0%";
+      void bar.offsetWidth; // Force reflow to restart animation
+
       setTimeout(() => {
         bar.style.transition = "width 2s ease-in-out";
         bar.style.width = finalWidth;
@@ -63,10 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Reset animations when section leaves viewport
   function resetAnimations() {
     bars.forEach(bar => {
-      bar.style.transition = "width 0.8s ease-out";
+      bar.style.transition = "none";
       bar.style.width = "0%";
+      void bar.offsetWidth; // Force reflow for all bars
     });
 
     circles.forEach(c => {
@@ -79,11 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // IntersectionObserver to detect section visibility
   const observer = new IntersectionObserver(
-    (entries) => {
+    entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-
           animateBars();
           buildCircles();
         } else {
@@ -149,6 +156,7 @@ const observer = new IntersectionObserver((entries) => {
 
 const scrollElements = document.querySelectorAll(".scroll-scale, .scroll-bottom, .scroll-top");
 scrollElements.forEach((el) => observer.observe(el));
+
 
 
 
