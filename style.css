@@ -599,7 +599,7 @@ a.btn:hover{
  }
 .skill-bar .bar .operating { 
     width: 65%;
-    animation: operting 8s;
+    animation: operating 8s;
  }
 .skill-bar .bar .linux { 
     width: 60%;
@@ -1573,6 +1573,7 @@ a.btn:hover{
         font-size: 0.7rem;
     }
 }
+
 
 
 
