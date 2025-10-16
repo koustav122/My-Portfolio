@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         bar.classList.contains("mongodb") ? "68%" :
         bar.classList.contains("react") ? "75%" :
         bar.classList.contains("python") ? "84%" :
-        bar.classList.contains("operting-system") ? "65%" :
+        bar.classList.contains("operating-system") ? "65%" :
         bar.classList.contains("linux") ? "60%" : "0%";
 
       bar.style.transition = "none";
@@ -149,5 +149,6 @@ const observer = new IntersectionObserver((entries) => {
 
 const scrollElements = document.querySelectorAll(".scroll-scale, .scroll-bottom, .scroll-top");
 scrollElements.forEach((el) => observer.observe(el));
+
 
 
