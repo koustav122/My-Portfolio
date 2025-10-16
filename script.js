@@ -16,25 +16,92 @@ const typed = new Typed('.multiple-text', {
 });
 
 // circle skill
-const circles = document.querySelectorAll('.circle');
-circles.forEach(elem => {
-    const dots = parseInt(elem.getAttribute("data-dots"));
-    const marked = parseInt(elem.getAttribute("data-percent"));
-    const percent = Math.floor(dots * marked / 100);
-    const rotate = 360 / dots;
-    let points = "";
+document.addEventListener("DOMContentLoaded", () => {
+  const skillSection = document.querySelector(".skills");
+  const bars = document.querySelectorAll(".skill-bar .bar span");
+  const circles = document.querySelectorAll(".circle");
 
-    for (let i = 0; i < dots; i++) {
+ 
+  function buildCircles() {
+    circles.forEach(elem => {
+      const dots = parseInt(elem.getAttribute("data-dots"));
+      const marked = parseInt(elem.getAttribute("data-percent"));
+      const percent = Math.floor((dots * marked) / 100);
+      const rotate = 360 / dots;
+      let points = "";
+
+      
+      for (let i = 0; i < dots; i++) {
         points += `<div class="points" style="--i:${i}; --rot:${rotate}deg"></div>`;
-    }
-    elem.innerHTML = points;
+      }
+      elem.innerHTML = points;
 
-    const pointsMarked = elem.querySelectorAll('.points');
-    for (let i = 0; i < percent; i++) {
-        pointsMarked[i].classList.add('marked');
-    }
+
+      const pointsMarked = elem.querySelectorAll(".points");
+      pointsMarked.forEach(p => p.classList.remove("marked"));
+      for (let i = 0; i < percent; i++) {
+        setTimeout(() => pointsMarked[i].classList.add("marked"), i * 25);
+      }
+    });
+  }
+
+
+  function animateBars() {
+    bars.forEach(bar => {
+      const finalWidth =
+        bar.classList.contains("html") ? "90%" :
+        bar.classList.contains("css") ? "72%" :
+        bar.classList.contains("javascript") ? "80%" :
+        bar.classList.contains("mongodb") ? "68%" :
+        bar.classList.contains("react") ? "75%" :
+        bar.classList.contains("python") ? "84%" :
+        bar.classList.contains("operting-system") ? "65%" :
+        bar.classList.contains("linux") ? "60%" : "0%";
+
+      bar.style.transition = "none";
+      bar.style.width = "0%";
+      setTimeout(() => {
+        bar.style.transition = "width 2s ease-in-out";
+        bar.style.width = finalWidth;
+      }, 150);
+    });
+  }
+
+  
+  function resetAnimations() {
+    bars.forEach(bar => {
+      bar.style.transition = "width 0.8s ease-out";
+      bar.style.width = "0%";
+    });
+
+    circles.forEach(c => {
+      c.style.transition = "opacity 0.5s ease-out";
+      c.style.opacity = "0";
+      setTimeout(() => {
+        c.innerHTML = "";
+        c.style.opacity = "1";
+      }, 600);
+    });
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+         
+          animateBars();
+          buildCircles();
+        } else {
+          
+          resetAnimations();
+        }
+      });
+    },
+    { threshold: 0.3 } 
+  );
+
+  observer.observe(skillSection);
 });
-
 // mix it up portfolio section
 var mixer = mixitup('.portfolio-gallery');
 
@@ -86,3 +153,4 @@ const observer = new IntersectionObserver((entries) => {
 
 const scrollElements = document.querySelectorAll(".scroll-scale, .scroll-bottom, .scroll-top");
 scrollElements.forEach((el) => observer.observe(el));
+
