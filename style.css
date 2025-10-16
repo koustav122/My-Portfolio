@@ -597,10 +597,11 @@ a.btn:hover{
     width: 84%;
     animation: python 7s;
  }
-.skill-bar .bar .operating { 
-    width: 65%;
-    animation: operating 8s;
- }
+.skill-bar .bar .operating-system {
+  width: 65%;
+  animation: operating 8s;
+}
+
 .skill-bar .bar .linux { 
     width: 60%;
     animation: linux 9s;
@@ -1573,6 +1574,7 @@ a.btn:hover{
         font-size: 0.7rem;
     }
 }
+
 
 
 
