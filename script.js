@@ -15,13 +15,14 @@ const typed = new Typed('.multiple-text', {
     cursorChar: '|',
 });
 
-// === Skill Bar & Circle Animation (Final Optimized) ===
+// === Skill Bar & Circle Animation ===
 document.addEventListener("DOMContentLoaded", () => {
   const skillSection = document.querySelector(".skills");
   const bars = document.querySelectorAll(".skill-bar .bar span");
   const circles = document.querySelectorAll(".circle");
+  let hasAnimated = false; // Track if animation has played
 
-  
+  // Rebuild circle points and mark animation
   function buildCircles() {
     circles.forEach(elem => {
       const dots = parseInt(elem.getAttribute("data-dots"));
@@ -38,22 +39,25 @@ document.addEventListener("DOMContentLoaded", () => {
       const pointsMarked = elem.querySelectorAll(".points");
       pointsMarked.forEach(p => p.classList.remove("marked"));
       for (let i = 0; i < percent; i++) {
-        setTimeout(() => pointsMarked[i].classList.add("marked"), i * 25);
+        setTimeout(() => {
+          pointsMarked[i].classList.add("marked");
+        }, i * 25);
       }
     });
   }
 
+  // Animate horizontal bars smoothly
   function animateBars() {
     bars.forEach(bar => {
-const finalWidth =
-  bar.classList.contains("html") ? "90%" :
-  bar.classList.contains("css") ? "72%" :
-  bar.classList.contains("javascript") ? "80%" :
-  bar.classList.contains("mongodb") ? "68%" :
-  bar.classList.contains("react") ? "75%" :
-  bar.classList.contains("python") ? "84%" :
-  bar.classList.contains("operating-system") ? "65%" :  
-  bar.classList.contains("linux") ? "60%" : "0%";
+      const finalWidth =
+        bar.classList.contains("html") ? "90%" :
+        bar.classList.contains("css") ? "72%" :
+        bar.classList.contains("javascript") ? "80%" :
+        bar.classList.contains("mongodb") ? "68%" :
+        bar.classList.contains("react") ? "75%" :
+        bar.classList.contains("python") ? "84%" :
+        bar.classList.contains("operting-system") ? "65%" :
+        bar.classList.contains("linux") ? "60%" : "0%";
 
       bar.style.transition = "none";
       bar.style.width = "0%";
@@ -64,39 +68,39 @@ const finalWidth =
     });
   }
 
-  function resetAnimations() {
-    // Smoothly shrink bars
-    bars.forEach(bar => {
-      bar.style.transition = "width 0.8s ease-out";
-      bar.style.width = "0%";
-    });
-
-    circles.forEach(c => {
-      c.style.transition = "opacity 0.5s ease-out";
-      c.style.opacity = "0";
-      setTimeout(() => {
-        c.innerHTML = "";
-        c.style.opacity = "1";
-      }, 600);
-    });
+  // Check if section is in view
+  function isInView() {
+    const rect = skillSection.getBoundingClientRect();
+    return (
+      rect.top < window.innerHeight - 100 &&
+      rect.bottom > 100
+    );
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateBars();
-          buildCircles();
-        } else {
-          resetAnimations();
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
+  // Scroll listener
+  window.addEventListener("scroll", () => {
+    if (isInView() && !hasAnimated) {
+      // Animate when entering view
+      hasAnimated = true;
+      animateBars();
+      buildCircles();
+    } else if (!isInView() && hasAnimated) {
+      // Reset when fully out of view
+      hasAnimated = false;
+    }
+  });
 
-  observer.observe(skillSection);
+  // Optional: re-trigger on clicking menu link
+  document.querySelectorAll('a[href="#skills"]').forEach(link => {
+    link.addEventListener("click", () => {
+      setTimeout(() => {
+        animateBars();
+        buildCircles();
+      }, 500);
+    });
+  });
 });
+
 
 // mix it up portfolio section
 var mixer = mixitup('.portfolio-gallery');
@@ -149,6 +153,7 @@ const observer = new IntersectionObserver((entries) => {
 
 const scrollElements = document.querySelectorAll(".scroll-scale, .scroll-bottom, .scroll-top");
 scrollElements.forEach((el) => observer.observe(el));
+
 
 
 
