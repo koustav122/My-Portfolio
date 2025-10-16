@@ -659,7 +659,7 @@ a.btn:hover{
 }
 
 .points.marked{
-    animation: glow 0.04s linear forwards;
+    animation: glow 0.08s linear forwards;
     animation-delay: calc(var(--i) * 0.05s);
 
 }
@@ -1573,6 +1573,7 @@ a.btn:hover{
         font-size: 0.7rem;
     }
 }
+
 
 
 
