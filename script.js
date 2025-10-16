@@ -45,14 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function animateBars() {
     bars.forEach(bar => {
       const finalWidth =
-        bar.classList.contains("html") ? "90%" :
-        bar.classList.contains("css") ? "72%" :
-        bar.classList.contains("javascript") ? "80%" :
-        bar.classList.contains("mongodb") ? "68%" :
-        bar.classList.contains("react") ? "75%" :
-        bar.classList.contains("python") ? "84%" :
-        bar.classList.contains("operting-system") ? "65%" :
-        bar.classList.contains("linux") ? "60%" : "0%";
+       bar.classList.contains("html") ? "90%" :
+       bar.classList.contains("css") ? "72%" :
+       bar.classList.contains("javascript") ? "80%" :
+       bar.classList.contains("mongodb") ? "68%" :
+       bar.classList.contains("react") ? "75%" :
+       bar.classList.contains("python") ? "84%" :
+       bar.classList.contains("operating-system") ? "65%" :
+       bar.classList.contains("linux") ? "60%" : "0%";
 
       bar.style.transition = "none";
       bar.style.width = "0%";
@@ -149,6 +149,7 @@ const observer = new IntersectionObserver((entries) => {
 
 const scrollElements = document.querySelectorAll(".scroll-scale, .scroll-bottom, .scroll-top");
 scrollElements.forEach((el) => observer.observe(el));
+
 
 
 
