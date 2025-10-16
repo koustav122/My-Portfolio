@@ -1,4 +1,4 @@
-// Type js
+         // Type js
 const typed = new Typed('.multiple-text', {
     strings: [
         'Full-Stack Developer',
@@ -156,6 +156,7 @@ const observer = new IntersectionObserver((entries) => {
 
 const scrollElements = document.querySelectorAll(".scroll-scale, .scroll-bottom, .scroll-top");
 scrollElements.forEach((el) => observer.observe(el));
+
 
 
 
